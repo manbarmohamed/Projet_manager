@@ -48,4 +48,14 @@
         <servlet-name>ShowTacheServlet</servlet-name>
         <url-pattern>/showT</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AddTacheServlet</servlet-name>
+        <servlet-class>com.controllers.tache.AddTacheServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTacheServlet</servlet-name>
+        <url-pattern>/addT</url-pattern>
+    </servlet-mapping>
 </web-app>
