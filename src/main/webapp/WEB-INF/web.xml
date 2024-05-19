@@ -30,4 +30,13 @@
         <servlet-name>AddProjetServlet</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>editeProjetServlet</servlet-name>
+        <servlet-class>com.controllers.projet.editeProjetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>editeProjetServlet</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
 </web-app>

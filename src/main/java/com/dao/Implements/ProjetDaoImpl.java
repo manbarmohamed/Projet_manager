@@ -38,8 +38,23 @@ public class ProjetDaoImpl implements ProjetDao {
     }
 
     @Override
-    public Projet getProjectById(int idP) {
-        return null;
+    public List<Projet> getProjectById(int idP) throws SQLException {
+        List<Projet> projets = new ArrayList<>();
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(GET_PROJET_BY_ID_SQL);
+        ps.setInt(1, idP);
+        ResultSet rs = ps.executeQuery();
+        Projet projet = new Projet();
+        while (rs.next()) {
+            projet.setProjetId(rs.getInt("projet_Id"));
+            projet.setProjetName(rs.getString("projet_Name"));
+            projet.setProjetDescription(rs.getString("projet_Description"));
+            projet.setStartDate(rs.getString("startDate"));
+            projet.setEndDate(rs.getString("endDate"));
+            projet.setBudget(rs.getDouble("budget"));
+            projets.add(projet);
+        }
+        return projets;
     }
 
     @Override
@@ -56,7 +71,16 @@ public class ProjetDaoImpl implements ProjetDao {
     }
 
     @Override
-    public void updateProject(Projet projet) {
+    public void updateProject(Projet projet) throws SQLException {
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(UPDATE_PROJET_SQL);
+        ps.setString(1, projet.getProjetName());
+        ps.setString(2, projet.getProjetDescription());
+        ps.setString(3, projet.getStartDate());
+        ps.setString(4, projet.getEndDate());
+        ps.setDouble(5, projet.getBudget());
+        ps.setInt(6, projet.getProjetId());
+        ps.executeUpdate();
 
     }
 

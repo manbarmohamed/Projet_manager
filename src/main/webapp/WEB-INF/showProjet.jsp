@@ -167,7 +167,7 @@
                                 <td>${proj.getBudget()}</td>
                                 <td>
                                     <ul class="action-list">
-                                        <li><a href="#" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
+                                        <li><a href="edit?idP=${proj.getProjetId()}" class="btn btn-primary"><i class="fa fa-pencil"></i></a></li>
                                         <li><a href="del?idP=${proj.getProjetId()}" class="btn btn-danger"><i class="fa fa-trash"></i></a></li>
                                     </ul>
                                 </td>
