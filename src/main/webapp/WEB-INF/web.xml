@@ -21,4 +21,13 @@
         <servlet-name>DeleteProjetServlet</servlet-name>
         <url-pattern>/del</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddProjetServlet</servlet-name>
+        <servlet-class>com.controllers.projet.AddProjetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProjetServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
 </web-app>

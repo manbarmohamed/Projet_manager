@@ -9,7 +9,7 @@ public interface ProjetDao {
 
     List<Projet> getAllProjects() throws SQLException;
     Projet getProjectById(int idP);
-    void saveProject(Projet projet);
+    void saveProject(Projet projet) throws SQLException;
     void updateProject(Projet projet);
     void deleteProject(int idP) throws SQLException;
 

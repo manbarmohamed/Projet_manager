@@ -43,7 +43,15 @@ public class ProjetDaoImpl implements ProjetDao {
     }
 
     @Override
-    public void saveProject(Projet projet) {
+    public void saveProject(Projet projet) throws SQLException {
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(SAVE_PROJET_SQL);
+        ps.setString(1, projet.getProjetName());
+        ps.setString(2, projet.getProjetDescription());
+        ps.setString(3, projet.getStartDate());
+        ps.setString(4, projet.getEndDate());
+        ps.setDouble(5, projet.getBudget());
+        ps.executeUpdate();
 
     }
 

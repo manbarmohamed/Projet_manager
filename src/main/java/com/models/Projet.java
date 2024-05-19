@@ -8,7 +8,7 @@ public class Projet {
     private String endDate;
     private double budget;
 
-    public Projet(String projetDescription, String startDate, String endDate, double budget, String projetName) {
+    public Projet(String projetName,String projetDescription, String startDate, String endDate, double budget) {
         this.projetDescription = projetDescription;
         this.startDate = startDate;
         this.endDate = endDate;
