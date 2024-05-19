@@ -58,4 +58,22 @@
         <servlet-name>AddTacheServlet</servlet-name>
         <url-pattern>/addT</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>daleteTacheServlet</servlet-name>
+        <servlet-class>com.controllers.tache.daleteTacheServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>daleteTacheServlet</servlet-name>
+        <url-pattern>/delT</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditTacheServlet</servlet-name>
+        <servlet-class>com.controllers.tache.EditTacheServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditTacheServlet</servlet-name>
+        <url-pattern>/editT</url-pattern>
+    </servlet-mapping>
 </web-app>
