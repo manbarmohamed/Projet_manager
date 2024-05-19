@@ -12,6 +12,13 @@ public class Ressource {
     public Ressource() {
     }
 
+    public Ressource(String ressourceName, ResourceType type, int quantity, String supplierInfo) {
+        this.ressourceName = ressourceName;
+        this.type = type;
+        this.quantity = quantity;
+        this.supplierInfo = supplierInfo;
+    }
+
     public Ressource(String ressourceName, ResourceType type, int quantity, String supplierInfo, int tacheId) {
         this.ressourceName = ressourceName;
         this.type = type;

@@ -98,4 +98,17 @@ public class Tache {
     public void setProjectId(int projectId) {
         this.projectId = projectId;
     }
+
+    @Override
+    public String toString() {
+        return "Tache{" +
+                "tacheId=" + tacheId +
+                ", tacheDescription='" + tacheDescription + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", status=" + status +
+                ", resources=" + resources +
+                ", projectId=" + projectId +
+                '}';
+    }
 }

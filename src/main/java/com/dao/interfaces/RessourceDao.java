@@ -1,14 +1,17 @@
 package com.dao.interfaces;
 
+import com.models.Ressource;
+
 import javax.annotation.Resource;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface RessourceDao {
-    List<Resource> getAllResources();
-    List<Resource> getAllResourcesByTacheId(int tacheId);
-    Resource getResourceById(int id);
-    void saveResource(Resource resource);
-    void updateResource(Resource resource);
-    void deleteResource(int idR);
+    List<Ressource> getAllResources() throws SQLException;
+    List<Ressource> getAllResourcesByTacheId(int tacheId) throws SQLException;
+    List<Ressource> getResourceById(int id) throws SQLException;
+    void saveResource(Ressource ressource) throws SQLException;
+    void updateResource(Ressource ressource) throws SQLException;
+    void deleteResource(int idR) throws SQLException;
 
 }
