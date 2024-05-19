@@ -11,6 +11,6 @@ public interface ProjetDao {
     Projet getProjectById(int idP);
     void saveProject(Projet projet);
     void updateProject(Projet projet);
-    void deleteProject(int idP);
+    void deleteProject(int idP) throws SQLException;
 
 }

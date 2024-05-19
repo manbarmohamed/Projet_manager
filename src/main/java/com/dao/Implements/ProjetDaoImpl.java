@@ -53,7 +53,10 @@ public class ProjetDaoImpl implements ProjetDao {
     }
 
     @Override
-    public void deleteProject(int idP) {
-
+    public void deleteProject(int idP) throws SQLException {
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(DELETE_PROJET_SQL);
+        ps.setInt(1, idP);
+        ps.executeUpdate();
     }
 }

@@ -1,15 +1,13 @@
-package com.controllers;
+package com.controllers.projet;
 
 import com.dao.Implements.ProjetDaoImpl;
 import com.dao.interfaces.ProjetDao;
-import com.models.Projet;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 @WebServlet(name = "ShowProjetServlet", value = "/ShowProjetServlet")
 public class ShowProjetServlet extends HttpServlet {
