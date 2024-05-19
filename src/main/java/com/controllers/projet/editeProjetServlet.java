@@ -21,7 +21,7 @@ public class editeProjetServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/editeProjet.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/editeProjet.jsp").forward(request, response);
 
     }
 
@@ -41,7 +41,7 @@ public class editeProjetServlet extends HttpServlet {
             System.out.println(projetDao.getProjectById(projetId));
             System.out.println("NameProjet: " + nameProjet + "descriptionProjet: " + descriptionProjet);
 
-            this.getServletContext().getRequestDispatcher("/WEB-INF/showProjet.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/showProjet.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

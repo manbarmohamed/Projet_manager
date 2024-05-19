@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class AddProjetServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/addProjet.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/addProjet.jsp").forward(request, response);
 
     }
 
@@ -32,7 +32,7 @@ public class AddProjetServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        this.getServletContext().getRequestDispatcher("/WEB-INF/showProjet.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/showProjet.jsp").forward(request, response);
 
     }
 }
