@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -33,6 +38,13 @@
 <body>
 
 <h2>HTML Table</h2>
+<div class="container mt-5">
+    <h1>Nombre de Tâches Terminées</h1>
+    <div class="progress">
+        <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <p id="progress-text">0% terminé</p>
+</div>
 
 <table>
     <tr>
@@ -62,7 +74,23 @@
 
 
 </table>
+<script>
+    window.onload = function() {
+        var completedCount = ${completedCount};
+        var totalCount = ${totalCount};
+        var percentage = (totalCount > 0) ? (completedCount / totalCount) * 100 : 0;
+        var progressBar = document.getElementById('progress-bar');
+        var progressText = document.getElementById('progress-text');
 
+        progressBar.style.width = percentage + '%';
+        progressBar.setAttribute('aria-valuenow', percentage);
+        progressText.textContent = Math.round(percentage) + '% terminé';
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 

@@ -12,6 +12,7 @@ public interface TacheDao {
     void updateTask(Tache task) throws SQLException;
     void deleteTask(int idtask) throws SQLException;
     List<Tache> getTaskById(int id) throws SQLException;
-
+    int countTaskDone() throws SQLException;
+    int countTotalTask() throws SQLException;
 
 }

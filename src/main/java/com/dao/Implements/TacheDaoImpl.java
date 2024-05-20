@@ -20,6 +20,8 @@ public class TacheDaoImpl implements TacheDao {
     private String UPDATE_TACH_BY_ID = "UPDATE taches SET tache_Description=?,startDate=?,endDate=?,status=?,projet_Id=? WHERE tache_Id=?";
     private String GET_TACH_BY_PROJET_ID = "SELECT * FROM taches WHERE projet_Id = ?";
     private String SAVE_TACH = "INSERT INTO taches (tache_Description, startDate, endDate, status, projet_Id) VALUES (?,?,?,?,?)";
+    private String COUNT_TACH_TODO = "SELECT COUNT(*) FROM taches WHERE status ='TODO'";
+    private String COUNT_ALL_TACHES = "SELECT COUNT(*) FROM taches";
     @Override
     public List<Tache> getTasksByProjectId(int projectId) throws SQLException {
         List<Tache> taches = new ArrayList<Tache>();
@@ -113,5 +115,27 @@ public class TacheDaoImpl implements TacheDao {
 
         }
         return tacheList;
+    }
+
+    @Override
+    public int countTaskDone() throws SQLException {
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(COUNT_TACH_TODO);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return 0;
+    }
+
+    @Override
+    public int countTotalTask() throws SQLException {
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(COUNT_ALL_TACHES);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return 0;
     }
 }

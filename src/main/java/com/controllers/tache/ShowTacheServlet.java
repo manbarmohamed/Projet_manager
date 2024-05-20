@@ -15,6 +15,10 @@ public class ShowTacheServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            int todoCount = tacheDao.countTaskDone();
+            int totalCount = tacheDao.countTotalTask();
+            request.setAttribute("completedCount", todoCount);
+            request.setAttribute("totalCount", totalCount);
             System.out.println(tacheDao.getAllTasks());
             request.setAttribute("listoftask", tacheDao.getAllTasks());
         } catch (SQLException e) {
