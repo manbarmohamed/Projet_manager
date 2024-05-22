@@ -10,7 +10,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowProjetServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/s</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -75,5 +75,23 @@
     <servlet-mapping>
         <servlet-name>EditTacheServlet</servlet-name>
         <url-pattern>/editT</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShartTaskServlet</servlet-name>
+        <servlet-class>com.controllers.tache.ShartTaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShartTaskServlet</servlet-name>
+        <url-pattern>/shart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateTacheStatutServlet</servlet-name>
+        <servlet-class>com.controllers.tache.UpdateTacheStatutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateTacheStatutServlet</servlet-name>
+        <url-pattern>/up</url-pattern>
     </servlet-mapping>
 </web-app>

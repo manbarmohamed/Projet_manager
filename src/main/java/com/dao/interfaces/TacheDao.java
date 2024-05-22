@@ -14,5 +14,9 @@ public interface TacheDao {
     List<Tache> getTaskById(int id) throws SQLException;
     int countTaskDone() throws SQLException;
     int countTotalTask() throws SQLException;
-
+    int getNombreTachesParStatut(String statut) throws SQLException;
+    int getNombreTachesTodo() throws SQLException;
+    int getNombreTachesInProgress() throws SQLException;
+    int getNombreTachesDone() throws SQLException;
+    boolean updateTacheStatut(int tacheId, String statut) throws SQLException;
 }

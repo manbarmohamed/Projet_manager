@@ -28,7 +28,7 @@ public class editeProjetServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProjetDao projetDao = new ProjetDaoImpl();
-        Integer projetId = Integer.parseInt(request.getParameter("idP"));
+        int projetId = Integer.parseInt(request.getParameter("idP"));
 
         String nameProjet = request.getParameter("Name");
         String descriptionProjet = request.getParameter("Desc");
@@ -36,15 +36,15 @@ public class editeProjetServlet extends HttpServlet {
         String endDate = request.getParameter("DateE");
         Double budget = Double.parseDouble(request.getParameter("budget"));
         try {
-            projetDao.updateProject(new Projet(nameProjet,descriptionProjet,startDate,endDate,budget));
-            request.setAttribute("projets", projetDao.getProjectById(projetId));
-            System.out.println(projetDao.getProjectById(projetId));
-            System.out.println("NameProjet: " + nameProjet + "descriptionProjet: " + descriptionProjet);
+            projetDao.updateProject(new Projet(projetId,nameProjet,descriptionProjet,startDate,endDate,budget));
 
-            this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/showProjet.jsp").forward(request, response);
+            System.out.println("NameProjet: ===" + nameProjet + "=====descriptionProjet: " + descriptionProjet);
+
+            //this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/showProjet.jsp").forward(request, response);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        response.sendRedirect("s");
         //this.getServletContext().getRequestDispatcher("/WEB-INF/showProjet.jsp").forward(request, response);
     }
 }

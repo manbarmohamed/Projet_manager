@@ -138,4 +138,44 @@ public class TacheDaoImpl implements TacheDao {
         }
         return 0;
     }
+
+    @Override
+    public int getNombreTachesParStatut(String statut) throws SQLException {
+        String query = "SELECT COUNT(*) FROM taches WHERE status = ?";
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, statut);
+            ResultSet rs = statement.executeQuery();
+                if (rs.next()) {
+                    return rs.getInt(1);
+                }
+        return 0;
+    }
+
+    @Override
+    public int getNombreTachesTodo() throws SQLException {
+        return getNombreTachesParStatut("TODO");
+    }
+
+    @Override
+    public int getNombreTachesInProgress() throws SQLException {
+        return getNombreTachesParStatut("INPROGRESS");
+    }
+
+    @Override
+    public int getNombreTachesDone() throws SQLException {
+        return getNombreTachesParStatut("DONE");
+    }
+
+    @Override
+    public boolean updateTacheStatut(int tacheId, String statut) throws SQLException {
+        String query = "UPDATE taches SET statut = ? WHERE id = ?";
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, statut);
+            statement.setInt(2, tacheId);
+            int rowsUpdated = statement.executeUpdate();
+            return rowsUpdated > 0;
+
+    }
 }

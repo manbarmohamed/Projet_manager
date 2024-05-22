@@ -33,7 +33,7 @@ public class Tache {
         this.projectId = projectId;
     }
 
-    public Tache(int tacheId, String tacheDescription, String startDate, String endDate, TacheStatus status, List<Resource> resources, int projectId) {
+    public Tache(int tacheId, String tacheDescription, String startDate, String endDate, TacheStatus status, int projectId) {
         this.tacheId = tacheId;
         this.tacheDescription = tacheDescription;
         this.startDate = startDate;
