@@ -18,6 +18,7 @@ public class ProjetDaoImpl implements ProjetDao {
     private String SAVE_PROJET_SQL = "INSERT INTO projets (projet_Name, projet_Description, startDate, endDate, budget) VALUES (?,?,?,?,?)";
     private String DELETE_PROJET_SQL = "delete from projets where projet_Id = ?";
     private String UPDATE_PROJET_SQL = "UPDATE projets SET projet_Name=?,projet_Description=?,startDate=?,endDate=?,budget=? where projet_Id = ?";
+    private String COUNT_PROJET_SQL = "select count(*) from projets";
     @Override
     public List<Projet> getAllProjects() throws SQLException {
         List<Projet> projets = new ArrayList<Projet>();
@@ -35,6 +36,24 @@ public class ProjetDaoImpl implements ProjetDao {
             projets.add(projet);
         }
         return projets;
+    }
+
+    @Override
+    public Projet getAllProject() throws SQLException {
+        Projet projet = new Projet();
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(GET_ALL_PROJET_SQL);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+
+            projet.setProjetId(rs.getInt("projet_Id"));
+            projet.setProjetName(rs.getString("projet_Name"));
+            projet.setProjetDescription(rs.getString("projet_Description"));
+            projet.setStartDate(rs.getString("startDate"));
+            projet.setEndDate(rs.getString("endDate"));
+            projet.setBudget(rs.getDouble("budget"));
+        }
+        return projet;
     }
 
     @Override
@@ -90,5 +109,16 @@ public class ProjetDaoImpl implements ProjetDao {
         PreparedStatement ps = con.prepareStatement(DELETE_PROJET_SQL);
         ps.setInt(1, idP);
         ps.executeUpdate();
+    }
+
+    @Override
+    public int totalProjects() throws SQLException {
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(COUNT_PROJET_SQL);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return 0;
     }
 }

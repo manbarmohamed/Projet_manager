@@ -9,26 +9,32 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "DeleteProjetServlet", value = "/DeleteProjetServlet")
-public class DeleteProjetServlet extends HttpServlet {
+@WebServlet(name = "ShowProjetById", value = "/ShowProjetById")
+public class ShowProjetById extends HttpServlet {
     ProjetDao projetDao = new ProjetDaoImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer projetId = Integer.parseInt(request.getParameter("idP"));
+        String idParam = request.getParameter("idp");
+
+        if (idParam != null && !idParam.isEmpty()) {
+
         try {
-            projetDao.deleteProject(projetId);
+            int pId = Integer.parseInt(request.getParameter("idp"));
+
+            System.out.println("====>>>"+projetDao.getProjectById(pId));
+            request.setAttribute("projetbyid",projetDao.getProjectById(pId));
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        //this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/showProjet.jsp").forward(request, response);
-        response.sendRedirect("/ProjetManager_war_exploded");
+            response.sendRedirect("/ProjetManager_war_exploded");
 
+            //this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/showProjet.jsp").forward(request, response);
+}
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/ProjetManager_war_exploded");
 
-        //this.getServletContext().getRequestDispatcher("/WEB-INF/projetViewer/showProjet.jsp").forward(request, response);
     }
 }

@@ -13,5 +13,5 @@ public interface RessourceDao {
     void saveResource(Ressource ressource) throws SQLException;
     void updateResource(Ressource ressource) throws SQLException;
     void deleteResource(int idR) throws SQLException;
-
+    int getResourceCount() throws SQLException;
 }

@@ -44,7 +44,7 @@ public class editeProjetServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        response.sendRedirect("s");
+        response.sendRedirect("/ProjetManager_war_exploded");
         //this.getServletContext().getRequestDispatcher("/WEB-INF/showProjet.jsp").forward(request, response);
     }
 }

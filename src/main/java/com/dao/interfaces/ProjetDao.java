@@ -8,9 +8,12 @@ import java.util.List;
 public interface ProjetDao {
 
     List<Projet> getAllProjects() throws SQLException;
+    Projet getAllProject() throws SQLException;
+
     List<Projet>  getProjectById(int idP) throws SQLException;
     void saveProject(Projet projet) throws SQLException;
     void updateProject(Projet projet) throws SQLException;
     void deleteProject(int idP) throws SQLException;
+    int totalProjects() throws SQLException;
 
 }

@@ -19,7 +19,7 @@
         const tacheStatutChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['À faire', 'En cours', 'Terminé'],
+                labels: ['ToDo', 'InProgress', 'Done'],
                 datasets: [{
                     label: 'Nombre de Tâches',
                     data: [<%= request.getAttribute("todo") %>, <%= request.getAttribute("inProgress") %>, <%= request.getAttribute("done") %>],

@@ -15,21 +15,21 @@ public class ShartTaskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-        int todo;
-        int inProgress;
-        int done;
-        try {
-            todo = tacheDao.getNombreTachesTodo();
-            inProgress = tacheDao.getNombreTachesInProgress();
-            done = tacheDao.getNombreTachesDone();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        request.setAttribute("todo", todo);
-        request.setAttribute("inProgress", inProgress);
-        request.setAttribute("done", done);
+//
+//        int todo;
+//        int inProgress;
+//        int done;
+//        try {
+//            todo = tacheDao.getNombreTachesTodo();
+//            inProgress = tacheDao.getNombreTachesInProgress();
+//            done = tacheDao.getNombreTachesDone();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        request.setAttribute("todo", todo);
+//        request.setAttribute("inProgress", inProgress);
+//        request.setAttribute("done", done);
 
         request.getRequestDispatcher("/WEB-INF/tacheViewer/tacheStatut.jsp").forward(request, response);
     }

@@ -14,13 +14,35 @@ public class ShowTacheServlet extends HttpServlet {
     private TacheDao tacheDao = new TacheDaoImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idpT = Integer.parseInt(request.getParameter("idpT"));
+
+        int todo;
+        int inProgress;
+        int done;
         try {
-            int todoCount = tacheDao.countTaskDone();
-            int totalCount = tacheDao.countTotalTask();
-            request.setAttribute("completedCount", todoCount);
-            request.setAttribute("totalCount", totalCount);
+            todo = tacheDao.getNombreTachesTodo("TODO",idpT);
+            inProgress = tacheDao.getNombreTachesInProgress("INPROGRESS",idpT);
+            done = tacheDao.getNombreTachesDone("DONE",idpT);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        request.setAttribute("todo", todo);
+        request.setAttribute("inProgress", inProgress);
+        request.setAttribute("done", done);
+
+        try {
+            int tacheDone = tacheDao.getNombreTachesDone("DONE",idpT);
+            int totalTache = tacheDao.countTotalTask();
+            request.setAttribute("totalDone", tacheDone);
+            request.setAttribute("totalTache", totalTache);
+            request.setAttribute("totalTodo", tacheDao.getNombreTachesTodo("TODO",idpT));
             System.out.println(tacheDao.getAllTasks());
             request.setAttribute("listoftask", tacheDao.getAllTasks());
+            request.setAttribute("taskdone", tacheDao.getTachesDone("DONE",idpT));
+            request.setAttribute("tasktodo", tacheDao.getTachesTodo("TODO",idpT));
+            request.setAttribute("taskinpro", tacheDao.getTachesInprogress("INPROGRESS",idpT));
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

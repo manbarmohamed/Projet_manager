@@ -21,7 +21,7 @@ public class RessourceDaoImpl implements RessourceDao {
     private String SAVE_RES_SQL = "INSERT INTO `ressources`(`ressource_name`, `type`, `quantite`, `fournisseur`, `tache_Id`) VALUES (?,?,?,?,?)";
     private String DELETE_RES_SQL = "delete from ressources where ressource_Id=?";
     private String UPDATE_RES_SQL = "UPDATE `ressources` SET `ressource_name`=?,`type`=?,`quantite`=?,`fournisseur`=? WHERE ressource_Id=?";
-
+    private String GET_COUNT_SQL = "SELECT COUNT(*) FROM ressources";
     @Override
     public List<Ressource> getAllResources() throws SQLException {
         List<Ressource> res = new ArrayList<Ressource>();
@@ -119,5 +119,16 @@ public class RessourceDaoImpl implements RessourceDao {
         PreparedStatement ps = con.prepareStatement(DELETE_RES_SQL);
         ps.setInt(1,idR);
         ps.executeUpdate();
+    }
+
+    @Override
+    public int getResourceCount() throws SQLException {
+        Connection con = new DataBaseManager().getConnection();
+        PreparedStatement ps = con.prepareStatement(GET_COUNT_SQL);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()){
+            return rs.getInt(1);
+        }
+        return 0;
     }
 }
