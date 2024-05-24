@@ -13,11 +13,15 @@ public interface TacheDao {
     void deleteTask(int idtask) throws SQLException;
     List<Tache> getTaskById(int id) throws SQLException;
     int countTotalTask() throws SQLException;
+
     int getNombreTachesParStatut(String statut ,int idP) throws SQLException;
     int getNombreTachesTodo(String statut ,int idP) throws SQLException;
     int getNombreTachesInProgress(String statut ,int idP) throws SQLException;
     int getNombreTachesDone(String statut ,int idP) throws SQLException;
+
+
     boolean updateTacheStatut(int tacheId, String statut) throws SQLException;
+
     List<Tache> getRecebtTaches() throws SQLException;
     List<Tache> getTachesByStatus(String status , int idP) throws SQLException;
     List<Tache> getTachesDone(String status , int idP) throws SQLException;

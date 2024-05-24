@@ -44,6 +44,6 @@ public class AddTacheServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        response.sendRedirect("showT?idpT="+projet_Id);
     }
 }

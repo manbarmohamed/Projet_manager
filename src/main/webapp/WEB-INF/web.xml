@@ -101,4 +101,40 @@
         <servlet-name>UpdateTacheStatutServlet</servlet-name>
         <url-pattern>/up</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowRessource</servlet-name>
+        <servlet-class>com.controllers.ressource.ShowRessource</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowRessource</servlet-name>
+        <url-pattern>/showR</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddRessource</servlet-name>
+        <servlet-class>com.controllers.ressource.AddRessource</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddRessource</servlet-name>
+        <url-pattern>/addres</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteRessource</servlet-name>
+        <servlet-class>com.controllers.ressource.DeleteRessource</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteRessource</servlet-name>
+        <url-pattern>/delR</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditRessource</servlet-name>
+        <servlet-class>com.controllers.ressource.EditRessource</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditRessource</servlet-name>
+        <url-pattern>/editR</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -45,7 +45,7 @@ public class EditTacheServlet extends HttpServlet {
 
             tacheDao.updateTask(new Tache(tacheId,description, startDate, endDate, status,projet_Id));
             //this.getServletContext().getRequestDispatcher("/WEB-INF/tacheViewer/showTache.jsp").forward(request, response);
-            response.sendRedirect("showT");
+            response.sendRedirect("showT?idpT="+projet_Id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

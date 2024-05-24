@@ -107,10 +107,7 @@
                 <div class='project-info'>
                     <h1>Task Page</h1>
                     <div class='project-participants'>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <button class='project-participants__add'>Add Task</button>
+                        <button type="button" class="add" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="ri-add-line"></i>Add Task</button>
                     </div>
                 </div>
                 <div class='project-tasks'>
@@ -120,7 +117,7 @@
                         </div>
                         <c:forEach var="taskD" items="${tasktodo}">
                             <div class='task' draggable='true'>
-                                <div class='task__tags'><span class='task__tag task__tag--copyright'>${taskD.getStatus()}</span><button class='task__options'><i class="ri-edit-line edit"></i></button></div>
+                                <div class='task__tags'><a href="showR?idT=${taskD.getTacheId()}"><span class='task__tag task__tag--copyright'>${taskD.getStatus()}</span></a></div>
                                 <p>${taskD.getTacheDescription()}</p>
                                 <div class='task__stats'>
                                     <span><time datetime="2021-11-24T20:00:00">${taskD.getStartDate()}</time></span>
@@ -130,7 +127,7 @@
                                         <a href="editT?idT=${taskD.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
                                     <span>
-                                        <a href="delT?idT=${taskD.getTacheId()}"><i class="ri-delete-bin-line delete"></i></a>
+                                        <a href="delT?idT=${taskD.getTacheId()}&idpT=${taskD.projectId}"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
 
                                 </div>
@@ -147,9 +144,7 @@
                     </div>
 <c:forEach var="taskIn" items="${taskinpro}">
                         <div class='task' draggable='true'>
-                            <div class='task__tags'>
-                                <span class='task__tag task__tag--design'>${taskIn.getStatus()}</span>
-                            </div>
+                            <div class='task__tags'><a href="showR?idT=${taskIn.getTacheId()}"><span class='task__tag task__tag--design'>${taskIn.getStatus()}</span></a></div>
                             <p>${taskIn.getTacheDescription()}</p>
                             <div class='task__stats'>
                                 <span><time datetime="2021-11-24T20:00:00">${taskIn.getStartDate()}</time></span>
@@ -176,9 +171,11 @@
 <c:forEach var="taskdn" items="${taskdone}">
 
     <div class='task' draggable='true'>
-        <div class='task__tags'>
-            <span class='task__tag task__tag--illustration'>${taskdn.getStatus()}</span>
-        </div>
+
+            <div class='task__tags'><a href="showR?idT=${taskdn.getTacheId()}"><span class='task__tag task__tag--illustration'>${taskdn.getStatus()}</span></a></div>
+
+
+
         <p>${taskdn.getTacheDescription()}</p>
         <div class='task__stats'>
             <span><time datetime="2021-11-24T20:00:00">${taskdn.getStartDate()}</time></span>
@@ -236,6 +233,91 @@
 
         </div>
 
+    </div>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="formbold-main-wrapper">
+                        <!-- Author: FormBold Team -->
+                        <!-- Learn More: https://formbold.com -->
+                        <div class="formbold-form-wrapper">
+                            <form action="addT" method="POST">
+                                <div class="flex flex-wrap formbold--mx-3">
+                                    <div class="w-full sm:w-half formbold-px-3">
+                                        <div class="formbold-mb-5">
+                                            <label for="fName" class="formbold-form-label"> Task Description: </label>
+                                            <input
+                                                    type="text"
+                                                    name="description"
+                                                    id="fName"
+                                                    placeholder="Project Name"
+                                                    class="formbold-form-input"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="w-full sm:w-half formbold-px-3">
+                                        <div class="formbold-mb-5">
+                                            <label for="statut" class="formbold-form-label">Statut</label>
+                                            <select class="form-control formbold-form-input" id="statut" name="status" required>
+                                                <option value="TODO">TODO</option>
+                                                <option value="INPROGRESS">INPROGRESS</option>
+                                                <option value="DONE">DONE</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="formbold-mb-5">
+                                    <label for="projetId" class="formbold-form-label">Projet ID</label>
+                                    <select class="form-control formbold-form-input" id="projetId" name="projetId" required>
+                                        <c:forEach var="projet" items="${projets}">
+                                            <option value="${projet.getProjetId()}">${projet.getProjetName()} (ID: ${projet.getProjetId()})</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <div class="flex flex-wrap formbold--mx-3">
+                                    <div class="w-full sm:w-half formbold-px-3">
+                                        <div class="formbold-mb-5 w-full">
+                                            <label for="date" class="formbold-form-label"> Start Date </label>
+                                            <input
+                                                    type="date"
+                                                    name="startDate"
+                                                    id="date"
+                                                    class="formbold-form-input"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="w-full sm:w-half formbold-px-3">
+                                        <div class="formbold-mb-5">
+                                            <label for="time" class="formbold-form-label"> End Date </label>
+                                            <input
+                                                    type="date"
+                                                    name="endDate"
+                                                    id="time"
+                                                    class="formbold-form-input"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="formbold-btn">Add Task</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -323,7 +405,8 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>
 

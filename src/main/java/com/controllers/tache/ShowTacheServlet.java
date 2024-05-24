@@ -1,6 +1,8 @@
 package com.controllers.tache;
 
+import com.dao.Implements.ProjetDaoImpl;
 import com.dao.Implements.TacheDaoImpl;
+import com.dao.interfaces.ProjetDao;
 import com.dao.interfaces.TacheDao;
 
 import javax.servlet.*;
@@ -12,14 +14,17 @@ import java.sql.SQLException;
 @WebServlet(name = "ShowTacheServlet", value = "/ShowTacheServlet")
 public class ShowTacheServlet extends HttpServlet {
     private TacheDao tacheDao = new TacheDaoImpl();
+    private ProjetDao projetDao = new ProjetDaoImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idpT = Integer.parseInt(request.getParameter("idpT"));
+
 
         int todo;
         int inProgress;
         int done;
         try {
+            request.setAttribute("projets", projetDao.getAllProjects());
             todo = tacheDao.getNombreTachesTodo("TODO",idpT);
             inProgress = tacheDao.getNombreTachesInProgress("INPROGRESS",idpT);
             done = tacheDao.getNombreTachesDone("DONE",idpT);

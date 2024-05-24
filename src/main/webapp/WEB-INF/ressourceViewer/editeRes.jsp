@@ -99,17 +99,17 @@
                 <!-- Author: FormBold Team -->
                 <!-- Learn More: https://formbold.com -->
                 <div class="formbold-form-wrapper">
-                    <c:forEach var="prj" items="${projets}">
-                        <form action="edit" method="POST">
+                    <c:forEach var="res" items="${resList}">
+                        <form action="editR" method="post">
                             <div class="flex flex-wrap formbold--mx-3">
                                 <div class="w-full sm:w-half formbold-px-3">
                                     <div class="formbold-mb-5">
-                                        <label for="fName" class="formbold-form-label"> Projet Id </label>
+                                        <label for="fName" class="formbold-form-label"> Ressource Id </label>
                                         <input
                                                 type="text"
-                                                name="idP"
+                                                name="idres"
                                                 id="fName"
-                                                value="${prj.getProjetId()}"
+                                                value="${res.ressourceId}"
                                                 class="formbold-form-input"
                                                 readonly
                                         />
@@ -117,81 +117,71 @@
                                 </div>
                                 <div class="w-full sm:w-half formbold-px-3">
                                     <div class="formbold-mb-5">
-                                        <label for="lName" class="formbold-form-label"> Projet Name </label>
+                                        <label for="lName" class="formbold-form-label"> Name </label>
                                         <input
                                                 type="text"
-                                                name="Name"
+                                                name="nameR"
                                                 id="lName"
-                                                value="${prj.getProjetName()}"
+                                                value="${res.ressourceName}"
                                                 class="formbold-form-input"
                                         />
-
                                     </div>
                                 </div>
                             </div>
 
                             <div class="formbold-mb-5">
-                                <label for="guest" class="formbold-form-label">Description</label>
+                                <label for="guest" class="formbold-form-label">Tache Id</label>
                                 <input
                                         type="text"
-                                        name="Desc"
+                                        name="tacheId"
                                         id="guest"
-                                        value="${prj.getProjetDescription()}"
+                                        value="${res.tacheId}" readonly
                                         class="formbold-form-input"
                                 />
-
                             </div>
-
                             <div class="flex flex-wrap formbold--mx-3">
                                 <div class="w-full sm:w-half formbold-px-3">
                                     <div class="formbold-mb-5 w-full">
-                                        <label for="date" class="formbold-form-label">Start Date </label>
+                                        <label for="date" class="formbold-form-label">Supplier Name </label>
                                         <input
-                                                type="date"
-                                                name="Date"
-                                                value="${prj.getStartDate()}"
+                                                type="text"
+                                                name="supName"
+                                                value="${res.supplierInfo}"
                                                 id="date"
                                                 class="formbold-form-input"
                                         />
+
                                     </div>
                                 </div>
                                 <div class="w-full sm:w-half formbold-px-3">
                                     <div class="formbold-mb-5">
                                         <label for="time" class="formbold-form-label"> End Date </label>
                                         <input
-                                                type="date"
-                                                name="DateE"
-                                                value="${prj.getEndDate()}"
+                                                type="number"
+                                                name="quantity"
+                                                value="${res.quantity}"
                                                 id="time"
                                                 class="formbold-form-input"
                                         />
-
                                     </div>
                                 </div>
                             </div>
 
                             <div class="flex formbold-mb-5">
                                 <div class="flex">
-                                    <label for="bfd" class="formbold-radio-label"> Budget </label>
-
-                                    <input
-                                            type="text"
-                                            name="budget"
-                                            value="${prj.getBudget()}"
-                                            id="bfd"
-                                            class="formbold-form-input"
-                                    />
-
+                                    <label for="statut" class="formbold-radio-label"> Type </label>
+                                    <select class="form-control formbold-form-input" id="statut" name="type" value="${res.type}" required>
+                                        <option value="MATERIAL">MATERIAL</option>
+                                        <option value="EQUIPMENT">EQUIPMENT</option>
+                                        <option value="LABOR">LABOR</option>
+                                    </select>
                                 </div>
-
                             </div>
-
                             <div>
                                 <button class="formbold-btn">Edit</button>
                             </div>
                         </form>
                     </c:forEach>
-
                 </div>
             </div>
         </div>
@@ -200,5 +190,3 @@
 
 </body>
 </html>
-
-

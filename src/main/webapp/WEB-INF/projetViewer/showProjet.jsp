@@ -173,7 +173,6 @@
                         <option value="scheduled">Scheduled</option>
                     </select>
                     <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="ri-add-line"></i>Add Projet</button>
-
                 </div>
             </div>
             <div class="doctors--cards">
