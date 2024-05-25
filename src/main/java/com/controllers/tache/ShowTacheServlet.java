@@ -24,6 +24,7 @@ public class ShowTacheServlet extends HttpServlet {
         int inProgress;
         int done;
         try {
+            request.setAttribute("projetsT",projetDao.getProjectById(idpT));
             request.setAttribute("projets", projetDao.getAllProjects());
             todo = tacheDao.getNombreTachesTodo("TODO",idpT);
             inProgress = tacheDao.getNombreTachesInProgress("INPROGRESS",idpT);
@@ -39,9 +40,10 @@ public class ShowTacheServlet extends HttpServlet {
         try {
             int tacheDone = tacheDao.getNombreTachesDone("DONE",idpT);
             int totalTache = tacheDao.countTotalTask();
+            int totalTodo = tacheDao.getNombreTachesTodo("TODO",idpT);
             request.setAttribute("totalDone", tacheDone);
             request.setAttribute("totalTache", totalTache);
-            request.setAttribute("totalTodo", tacheDao.getNombreTachesTodo("TODO",idpT));
+            request.setAttribute("totalTodo", totalTodo);
             System.out.println(tacheDao.getAllTasks());
             request.setAttribute("listoftask", tacheDao.getAllTasks());
             request.setAttribute("taskdone", tacheDao.getTachesDone("DONE",idpT));

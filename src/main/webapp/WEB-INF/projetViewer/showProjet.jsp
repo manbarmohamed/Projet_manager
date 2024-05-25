@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <style>
@@ -17,21 +18,9 @@
         <h2>Med<span>Ex</span></h2>
     </div>
     <div class="search--notification--profile">
-        <div class="search">
-            <input type="text" placeholder="Search Scdule..">
-            <button><i class="ri-search-2-line"></i></button>
-        </div>
+
         <div class="notification--profile">
-            <div class="picon lock">
-                <i class="ri-lock-line"></i>
-            </div>
-            <div class="picon bell">
-                <i class="ri-notification-2-line"></i>
-            </div>
-            <div class="picon chat">
-                <i class="ri-wechat-2-line"></i>
-            </div>
-            <div class="picon profile">
+            <div class="picon profile ">
                 <img src="https://i.ibb.co/g33gWW3/28.jpg" alt="">
             </div>
         </div>
@@ -46,24 +35,8 @@
                     <span class="sidebar--item">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
-                    <span class="sidebar--item">Schedule</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
-                    <span class="sidebar--item" style="white-space: nowrap;">Reliable Doctor</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-4"><i class="ri-user-line"></i></span>
-                    <span class="sidebar--item">Patients</span>
-                </a>
-            </li>
+
+
             <li>
                 <a href="#">
                     <span class="icon icon-5"><i class="ri-line-chart-line"></i></span>
@@ -96,13 +69,6 @@
         <div class="overview">
             <div class="title">
                 <h2 class="section--title">Overview</h2>
-                <select name="date" id="date" class="dropdown">
-                    <option value="today">Today</option>
-                    <option value="lastweek">Last Week</option>
-                    <option value="lastmonth">Last Month</option>
-                    <option value="lastyear">Last Year</option>
-                    <option value="alltime">All Time</option>
-                </select>
             </div>
             <div class="cards">
                 <div class="card card-1">
@@ -113,11 +79,7 @@
                         </div>
                         <i class="ri-user-2-line card--icon--lg"></i>
                     </div>
-                    <div class="card--stats">
-                        <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>65%</span>
-                        <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>10</span>
-                        <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
-                    </div>
+
                 </div>
                 <div class="card card-2">
                     <div class="card--data">
@@ -127,11 +89,7 @@
                         </div>
                         <i class="ri-user-line card--icon--lg"></i>
                     </div>
-                    <div class="card--stats">
-                        <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>82%</span>
-                        <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>230</span>
-                        <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
-                    </div>
+
                 </div>
                 <div class="card card-3">
                     <div class="card--data">
@@ -141,38 +99,19 @@
                         </div>
                         <i class="ri-calendar-2-line card--icon--lg"></i>
                     </div>
-                    <div class="card--stats">
-                        <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>27%</span>
-                        <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>31</span>
-                        <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>23</span>
-                    </div>
+
                 </div>
-                <div class="card card-4">
-                    <div class="card--data">
-                        <div class="card--content">
-                            <h5 class="card--title">Tasks Done</h5>
-                            <h1>${totalDone}/${totalTache}</h1>
-                        </div>
-                        <i class="ri-hotel-bed-line card--icon--lg"></i>
-                    </div>
-                    <div class="card--stats">
-                        <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>8%</span>
-                        <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>11</span>
-                        <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="doctors">
             <div class="title">
                 <h2 class="section--title">Projects</h2>
                 <div class="doctors--right--btns">
-                    <select name="date" id="date" class="dropdown doctor--filter">
-                        <option >Filter</option>
-                        <option value="free">Free</option>
-                        <option value="scheduled">Scheduled</option>
-                    </select>
-                    <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="ri-add-line"></i>Add Projet</button>
+                    <button type="button" class="btn btn-primary add" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><i class="ri-add-line"></i>Add
+                        Projet
+                    </button>
                 </div>
             </div>
             <div class="doctors--cards">
@@ -180,11 +119,15 @@
                     <div class="doctor--card">
                         <div class="img--box--cover">
                             <div class="img--box">
-                                <img src="https://i.ibb.co/WKndNpf/doctor.png" alt="">
+                                <img src="https://i.ibb.co/WKndNpf/doctor.png" alt="" class="img_projet">
                             </div>
 
                         </div>
                         <a href="showT?idpT=${proj.getProjetId()}"><p class="free">${proj.getProjetName()}</p></a>
+                        <div style="display: flex; font-size: 10px; width: 100%; justify-content: space-between">
+                            <p>${proj.startDate}</p>
+                            <p>${proj.endDate}</p>
+                        </div>
                         <div class="active-links">
                             <a href="edit?idP=${proj.getProjetId()}"><i class="ri-edit-line edit"></i></a>
                             <a href="del?idP=${proj.getProjetId()}"><i class="ri-delete-bin-line delete"></i></a>
@@ -197,7 +140,6 @@
         <div class="recent--patients">
             <div class="title">
                 <h2 class="section--title">Recent Tasks</h2>
-                <button class="add"><i class="ri-add-line"></i>Add Task</button>
             </div>
             <div class="table">
                 <table>
@@ -207,7 +149,7 @@
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Status</th>
-                        <th>Settings</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -216,11 +158,12 @@
                             <td>${task.getTacheDescription()}</td>
                             <td>${task.getStartDate()}</td>
                             <td>${task.getEndDate()}</td>
-                            <td>${task.getStatus()}</td>
-                            <td><span>
-                                <a href="#"><i class="ri-edit-line edit"></i></a>
-                                <a href="#"><i class="ri-delete-bin-line delete"></i></a>
-                            </span></td>
+                            <td class="<c:choose>
+                                <c:when test="${task.getStatus() == 'TODO'}">status-todo</c:when>
+                                <c:when test="${task.getStatus() == 'INPROGRESS'}">status-inprogress</c:when>
+                                <c:when test="${task.getStatus() == 'DONE'}">status-done</c:when>
+                                </c:choose>">${task.getStatus()}
+                            </td>
                         </tr>
                     </c:forEach>
 
@@ -323,19 +266,9 @@
     </div>
 </section>
 
-<script>
-    window.onload = function() {
-        var completedCount = ${totalDone};
-        var totalCount = ${totalTache};
-        var percentage = (totalCount > 0) ? (completedCount / totalCount) * 100 : 0;
-        var progressBar = document.getElementById('progress-bar');
-        var progressText = document.getElementById('progress-text');
 
-        progressBar.style.width = percentage + '%';
-        progressBar.setAttribute('aria-valuenow', percentage);
-        progressText.textContent = Math.round(percentage) + '% Done';
-    }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 </html>

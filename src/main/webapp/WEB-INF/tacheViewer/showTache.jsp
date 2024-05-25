@@ -26,22 +26,10 @@
         <h2>Med<span>Ex</span></h2>
     </div>
     <div class="search--notification--profile">
-        <div class="search">
-            <input type="text" placeholder="Search Scdule..">
-            <button><i class="ri-search-2-line"></i></button>
-        </div>
         <div class="notification--profile">
-            <div class="picon lock">
-                <i class="ri-lock-line"></i>
-            </div>
-            <div class="picon bell">
-                <i class="ri-notification-2-line"></i>
-            </div>
-            <div class="picon chat">
-                <i class="ri-wechat-2-line"></i>
-            </div>
+
             <div class="picon profile">
-                <img src="admin.png" alt="">
+                <img src="https://i.ibb.co/g33gWW3/28.jpg" alt="">
             </div>
         </div>
     </div>
@@ -101,7 +89,29 @@
             </li>
         </ul>
     </div>
+
+
     <div class="main--content">
+        <section class="card-container">
+            <c:forEach var="prj" items="${projetsT}">
+                <div class="card-main">
+                    <div class="card-img">
+                        <img src="https://i.ibb.co/vhKYByB/cardimg.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${prj.projetName}</h3>
+                        <p class="card-description">
+                                ${prj.projetDescription}
+                        </p>
+                        <div class="card-date">
+                            <p class="date">${prj.startDate}</p>
+                            <p class="date">${prj.endDate}</p>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+
+        </section>
         <div class='app'>
             <main class='project'>
                 <div class='project-info'>
@@ -122,14 +132,14 @@
                                 <div class='task__stats'>
                                     <span><time datetime="2021-11-24T20:00:00">${taskD.getStartDate()}</time></span>
                                     <span><time datetime="2021-11-24T20:00:00">${taskD.getEndDate()}</time></span>
-
-                                    <span>
+                                </div>
+                                <div style="margin-top: 5px">
+                                     <span>
                                         <a href="editT?idT=${taskD.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
                                     <span>
                                         <a href="delT?idT=${taskD.getTacheId()}&idpT=${taskD.projectId}"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
-
                                 </div>
                             </div>
                         </c:forEach>
@@ -149,14 +159,14 @@
                             <div class='task__stats'>
                                 <span><time datetime="2021-11-24T20:00:00">${taskIn.getStartDate()}</time></span>
                                 <span><time datetime="2021-11-24T20:00:00">${taskIn.getEndDate()}</time></span>
-
-                                <span>
+                            </div>
+                            <div style="margin-top: 5px">
+                                     <span>
                                         <a href="editT?idT=${taskIn.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
                                 <span>
-                                        <a href="delT?idT=${taskIn.getTacheId()}"><i class="ri-delete-bin-line delete"></i></a>
+                                        <a href="delT?idT=${taskIn.getTacheId()}&idpT=${taskIn.projectId}"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
-
                             </div>
                         </div>
 </c:forEach>
@@ -181,13 +191,17 @@
             <span><time datetime="2021-11-24T20:00:00">${taskdn.getStartDate()}</time></span>
             <span><time datetime="2021-11-24T20:00:00">${taskdn.getEndDate()}</time></span>
 
-            <span>
+
+
+        </div>
+
+        <div style="margin-top: 5px">
+                                     <span>
                                         <a href="editT?idT=${taskdn.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
             <span>
-                                        <a href="delT?idT=${taskdn.getTacheId()}"><i class="ri-delete-bin-line delete"></i></a>
+                                        <a href="delT?idT=${taskdn.getTacheId()}&idpT=${taskdn.projectId}"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
-
         </div>
     </div>
 </c:forEach>
@@ -201,32 +215,51 @@
                     <h2>Task Progress</h2>
                     <div class='tag-progress'>
                         <p>Task Done</p>
-                        <div class="progress progress--copyright">
-                            <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress mt-2">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: ${done / totalTache * 100}%">
+
+                            </div>
                         </div>
-                        <p id="progress-text">0% Done</p>
+                        <p>${done} Done</p>
                     </div>
 
                     <div class='tag-progress'>
+
                         <p>Task Todo </p>
-                        <div class="progress progress--copyright">
-                            <div id="progress-bar-todo" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+                        <div class="progress">
+
+                            <div class="progress-bar bg-info" role="progressbar" style="width: ${todo / totalTache * 100}%">
+
+                            </div>
+
+
                         </div>
-                        <p id="progress-text-todo">0% ToDo</p>
+
+                        <p>${todo} Todo</p>
+
                     </div>
                     <div class='tag-progress'>
-                        <p>UI Design <span>2/7</span></p>
-                        <progress class="progress progress--design" max="7" value="2"> 2 </progress>
+
+                        <p>Task In Progress</p>
+
+                        <div class="progress mt-2">
+
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: ${inProgress / totalTache * 100}%">
+                            </div>
+                        </div>
+                        <p>${inProgress} In Progress</p>
+
                     </div>
+
                 </div>
+
                 <div class='task-activity'>
                     <h2>Recent Activity</h2>
                     <div class="container mt-5">
                         <h1>Tâches par Statut</h1>
                         <canvas id="tacheStatutChart"></canvas>
                     </div>
-
-
                 </div>
 
             </aside>
@@ -337,7 +370,7 @@
         datasets: [{
         label: 'Nombre de Tâches',
         data: [<%= request.getAttribute("todo") %>, <%= request.getAttribute("inProgress") %>, <%= request.getAttribute("done") %>],
-        backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe'],
+        backgroundColor: ['#638fff', '#ead455', '#007c44'],
     }]
     },
         options: {

@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ressourceViewer/editeRes.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ressourceViewer" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tacheViewer/showTache.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tacheViewer" />
       </map>
     </option>
   </component>
