@@ -45,7 +45,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="logout">
                     <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
                     <span class="sidebar--item">Logout</span>
                 </a>
@@ -137,6 +137,16 @@
     </div>
 </section>
 
+<script>
+    let menu = document.querySelector('.menu')
+    let sidebar = document.querySelector('.sidebar')
+    let mainContent = document.querySelector('.main--content')
+    menu.onclick = function() {
+        sidebar.classList.toggle('active')
+        mainContent.classList.toggle('active')
+    }
+</script>
+
 </body>
 </html>
 
@@ -153,34 +163,3 @@
 
 
 
-<form action="addres" method="post">
-    <div class="form-group">
-        <label for="description">Name</label>
-        <input type="text" class="form-control" id="description" name="nameR" required>
-    </div>
-    <div class="form-group">
-        <label for="dateDebut">Supplier Name</label>
-        <input type="text" class="form-control" id="dateDebut" name="supName" required>
-    </div>
-    <div class="form-group">
-        <label for="dateFin">Quantity</label>
-        <input type="number" class="form-control" id="dateFin" name="quantity" required>
-    </div>
-    <div class="form-group">
-        <label for="statut">type</label>
-        <select class="form-control" id="statut" name="type" required>
-            <option value="MATERIAL">MATERIAL</option>
-            <option value="EQUIPMENT">EQUIPMENT</option>
-            <option value="LABOR">LABOR</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="projetId">Tache ID</label>
-        <select class="form-control" id="projetId" name="tacheId" required>
-            <c:forEach var="tache" items="${tache}">
-                <option value="${tache.tacheId}">${tache.tacheDescription} (ID: ${tache.tacheId})</option>
-            </c:forEach>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Ajouter</button>

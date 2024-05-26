@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="logout">
                     <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
                     <span class="sidebar--item">Logout</span>
                 </a>
@@ -99,7 +99,7 @@
                             <td>
                                 <span>
                                     <a href="editR?idRes=${Ressource.ressourceId}"><i class="ri-edit-line edit"></i></a>
-                                    <a href="delR?idRes=${Ressource.ressourceId}&idT=${Ressource.tacheId}"><i class="ri-delete-bin-line delete"></i></a>
+                                    <a href="delR?idRes=${Ressource.ressourceId}&idT=${Ressource.tacheId}" onclick="confirmDeletion(event, '${Ressource.ressourceId}', 'Ressource',${Ressource.tacheId})"><i class="ri-delete-bin-line delete"></i></a>
                                 </span>
                             </td>
                         </tr>
@@ -110,6 +110,24 @@
         </div>
     </div>
 </section>
+
+<script>
+    let menu = document.querySelector('.menu')
+    let sidebar = document.querySelector('.sidebar')
+    let mainContent = document.querySelector('.main--content')
+    menu.onclick = function() {
+        sidebar.classList.toggle('active')
+        mainContent.classList.toggle('active')
+    }
+
+
+    function confirmDeletion(event, id, type ,id2) {
+        event.preventDefault();
+        if (confirm('Are you sure you want to delete this ' + type + '?')) {
+            window.location.href = 'delR?idRes=' + id+'&idT='+id2;
+        }
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

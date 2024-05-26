@@ -122,7 +122,7 @@
                         </div>
                         <div class="active-links">
                             <a href="edit?idP=${proj.getProjetId()}"><i class="ri-edit-line edit"></i></a>
-                            <a href="del?idP=${proj.getProjetId()}"><i class="ri-delete-bin-line delete"></i></a>
+                            <a href="del?idP=${proj.getProjetId()}" onclick="confirmDeletion(event, '${proj.getProjetId()}', 'Project')"><i class="ri-delete-bin-line delete"></i></a>
                         </div>
                     </div>
                 </c:forEach>
@@ -256,6 +256,25 @@
     </div>
 </section>
 
+
+
+<script>
+
+    function confirmDeletion(event, id, type) {
+        event.preventDefault();
+        if (confirm('Are you sure you want to delete this ' + type + '?')) {
+            window.location.href = 'del?idP=' + id;
+        }
+    }
+
+    let menu = document.querySelector('.menu')
+    let sidebar = document.querySelector('.sidebar')
+    let mainContent = document.querySelector('.main--content')
+    menu.onclick = function() {
+        sidebar.classList.toggle('active')
+        mainContent.classList.toggle('active')
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

@@ -45,7 +45,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="logout">
                     <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
                     <span class="sidebar--item">Logout</span>
                 </a>
@@ -155,7 +155,15 @@
         </div>
     </div>
 </section>
-
+<script>
+    let menu = document.querySelector('.menu')
+    let sidebar = document.querySelector('.sidebar')
+    let mainContent = document.querySelector('.main--content')
+    menu.onclick = function() {
+        sidebar.classList.toggle('active')
+        mainContent.classList.toggle('active')
+    }
+</script>
 </body>
 </html>
 

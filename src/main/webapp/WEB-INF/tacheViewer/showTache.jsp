@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="logout">
                     <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
                     <span class="sidebar--item">Logout</span>
                 </a>
@@ -114,7 +114,7 @@
                                         <a href="editT?idT=${taskD.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
                                     <span>
-                                        <a href="delT?idT=${taskD.getTacheId()}&idpT=${taskD.projectId}"><i class="ri-delete-bin-line delete"></i></a>
+                                        <a href="delT?idT=${taskD.getTacheId()}&idpT=${taskD.projectId}" onclick="confirmDeletion(event, '${taskD.getTacheId()}', 'Project',${taskD.projectId})"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                                         <a href="editT?idT=${taskIn.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
                                 <span>
-                                        <a href="delT?idT=${taskIn.getTacheId()}&idpT=${taskIn.projectId}"><i class="ri-delete-bin-line delete"></i></a>
+                                        <a href="delT?idT=${taskIn.getTacheId()}&idpT=${taskIn.projectId}" onclick="confirmDeletion(event, '${taskIn.getTacheId()}', 'Project',${taskIn.projectId})"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                                         <a href="editT?idT=${taskdn.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
             <span>
-                                        <a href="delT?idT=${taskdn.getTacheId()}&idpT=${taskdn.projectId}"><i class="ri-delete-bin-line delete"></i></a>
+                                        <a href="delT?idT=${taskdn.getTacheId()}&idpT=${taskdn.projectId}" onclick="confirmDeletion(event, '${taskdn.getTacheId()}', 'Tache',${taskdn.projectId})"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
         </div>
     </div>
@@ -374,6 +374,20 @@
     }
     });
     });
+
+        let menu = document.querySelector('.menu')
+        let sidebar = document.querySelector('.sidebar')
+        let mainContent = document.querySelector('.main--content')
+        menu.onclick = function() {
+            sidebar.classList.toggle('active')
+            mainContent.classList.toggle('active')
+        }
+        function confirmDeletion(event, id, type ,id2) {
+            event.preventDefault();
+            if (confirm('Are you sure you want to delete this ' + type + '?')) {
+                window.location.href = 'delT?idT=' + id+'&idpT='+id2;
+            }
+        }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
