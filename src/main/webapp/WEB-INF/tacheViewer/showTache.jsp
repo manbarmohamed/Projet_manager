@@ -25,40 +25,15 @@
         <i class="ri-menu-line icon icon-0 menu"></i>
         <h2>Med<span>Ex</span></h2>
     </div>
-    <div class="search--notification--profile">
-        <div class="notification--profile">
 
-            <div class="picon profile">
-                <img src="https://i.ibb.co/g33gWW3/28.jpg" alt="">
-            </div>
-        </div>
-    </div>
 </section>
 <section class="main">
     <div class="sidebar">
         <ul class="sidebar--items">
             <li>
-                <a href="index.html" >
+                <a href="#" id="active--link">
                     <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
                     <span class="sidebar--item">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" id="active--link">
-                    <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
-                    <span class="sidebar--item">Projects</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
-                    <span class="sidebar--item" style="white-space: nowrap;">Reliable Doctor</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-4"><i class="ri-user-line"></i></span>
-                    <span class="sidebar--item">Patients</span>
                 </a>
             </li>
             <li>
@@ -73,8 +48,6 @@
                     <span class="sidebar--item">Support</span>
                 </a>
             </li>
-        </ul>
-        <ul class="sidebar--bottom-items">
             <li>
                 <a href="#">
                     <span class="icon icon-7"><i class="ri-settings-3-line"></i></span>
@@ -88,6 +61,9 @@
                 </a>
             </li>
         </ul>
+
+
+
     </div>
 
 
@@ -278,10 +254,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="formbold-main-wrapper">
-                        <!-- Author: FormBold Team -->
-                        <!-- Learn More: https://formbold.com -->
                         <div class="formbold-form-wrapper">
-                            <form action="addT" method="POST">
+
+                            <form action="addT" method="POST" >
                                 <div class="flex flex-wrap formbold--mx-3">
                                     <div class="w-full sm:w-half formbold-px-3">
                                         <div class="formbold-mb-5">
@@ -297,7 +272,7 @@
                                     </div>
                                     <div class="w-full sm:w-half formbold-px-3">
                                         <div class="formbold-mb-5">
-                                            <label for="statut" class="formbold-form-label">Statut</label>
+                                            <label for="statut" class="formbold-form-label">Status</label>
                                             <select class="form-control formbold-form-input" id="statut" name="status" required>
                                                 <option value="TODO">TODO</option>
                                                 <option value="INPROGRESS">INPROGRESS</option>
@@ -399,41 +374,6 @@
     }
     });
     });
-
-        window.onload = function () {
-            var completedCount = ${totalDone};
-            var totalCount = ${totalTache};
-            var percentage = (totalCount > 0) ? (completedCount / totalCount) * 100 : 0;
-            var progressBar = document.getElementById('progress-bar');
-            var progressText = document.getElementById('progress-text');
-
-            progressBar.style.width = percentage + '%';
-            progressBar.setAttribute('aria-valuenow', percentage);
-            progressText.textContent = Math.round(percentage) + '% Done';
-        }
-        window.onload = function () {
-            var completedCount = ${totalDone};
-            var totalCount = ${totalTache};
-            var percentage = (totalCount > 0) ? (completedCount / totalCount) * 100 : 0;
-            var progressBar = document.getElementById('progress-bar');
-            var progressText = document.getElementById('progress-text');
-
-            progressBar.style.width = percentage + '%';
-            progressBar.setAttribute('aria-valuenow', percentage);
-            progressText.textContent = Math.round(percentage) + '% Done';
-        }
-        window.onload = function () {
-            var completedCount = ${totalTodo};
-            var totalCount = ${totalTache};
-            var percentage = (totalCount > 0) ? (completedCount / totalCount) * 100 : 0;
-            var progressBar = document.getElementById('progress-bar-todo');
-            var progressText = document.getElementById('progress-text-todo');
-
-            progressBar.style.width = percentage + '%';
-            progressBar.setAttribute('aria-valuenow', percentage);
-            progressText.textContent = Math.round(percentage) + '% Done';
-        }
-
 </script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

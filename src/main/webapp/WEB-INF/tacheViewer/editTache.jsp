@@ -15,26 +15,7 @@
         <i class="ri-menu-line icon icon-0 menu"></i>
         <h2>Med<span>Ex</span></h2>
     </div>
-    <div class="search--notification--profile">
-        <div class="search">
-            <input type="text" placeholder="Search Scdule..">
-            <button><i class="ri-search-2-line"></i></button>
-        </div>
-        <div class="notification--profile">
-            <div class="picon lock">
-                <i class="ri-lock-line"></i>
-            </div>
-            <div class="picon bell">
-                <i class="ri-notification-2-line"></i>
-            </div>
-            <div class="picon chat">
-                <i class="ri-wechat-2-line"></i>
-            </div>
-            <div class="picon profile">
-                <img src="admin.png" alt="">
-            </div>
-        </div>
-    </div>
+
 </section>
 <section class="main">
     <div class="sidebar">
@@ -43,24 +24,6 @@
                 <a href="#" id="active--link">
                     <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
                     <span class="sidebar--item">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-2"><i class="ri-calendar-2-line"></i></span>
-                    <span class="sidebar--item">Schedule</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-3"><i class="ri-user-2-line"></i></span>
-                    <span class="sidebar--item" style="white-space: nowrap;">Reliable Doctor</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon icon-4"><i class="ri-user-line"></i></span>
-                    <span class="sidebar--item">Patients</span>
                 </a>
             </li>
             <li>
@@ -75,8 +38,6 @@
                     <span class="sidebar--item">Support</span>
                 </a>
             </li>
-        </ul>
-        <ul class="sidebar--bottom-items">
             <li>
                 <a href="#">
                     <span class="icon icon-7"><i class="ri-settings-3-line"></i></span>
@@ -90,14 +51,16 @@
                 </a>
             </li>
         </ul>
+
+
+
     </div>
     <div class="main--content">
 
         <div class="recent--patients" style="display: flex; flex-direction: column;  justify-content: center;height: 100%;">
 
             <div class="formbold-main-wrapper">
-                <!-- Author: FormBold Team -->
-                <!-- Learn More: https://formbold.com -->
+
                 <div class="formbold-form-wrapper">
                     <c:forEach var="task" items="${listoftask}">
                         <form action="editT" method="POST">
@@ -171,16 +134,17 @@
                                 </div>
                             </div>
 
-                            <div class="flex formbold-mb-5">
-                                <div class="flex">
+                            <div class="formbold-mb-5">
+
                                     <label for="statut" class="formbold-radio-label"> Status </label>
                                     <select class="form-control formbold-form-input" id="statut" name="status" value="${task.getStatus()}"  required>
                                         <option value="TODO">TODO</option>
                                         <option value="INPROGRESS">INPROGRESS</option>
                                         <option value="DONE">DONE</option>
                                     </select>
-                                </div>
+
                             </div>
+
                             <div>
                                 <button class="formbold-btn">Edit</button>
                             </div>

@@ -17,14 +17,7 @@
         <i class="ri-menu-line icon icon-0 menu"></i>
         <h2>Med<span>Ex</span></h2>
     </div>
-    <div class="search--notification--profile">
 
-        <div class="notification--profile">
-            <div class="picon profile ">
-                <img src="https://i.ibb.co/g33gWW3/28.jpg" alt="">
-            </div>
-        </div>
-    </div>
 </section>
 <section class="main">
     <div class="sidebar">
@@ -35,8 +28,6 @@
                     <span class="sidebar--item">Dashboard</span>
                 </a>
             </li>
-
-
             <li>
                 <a href="#">
                     <span class="icon icon-5"><i class="ri-line-chart-line"></i></span>
@@ -49,8 +40,6 @@
                     <span class="sidebar--item">Support</span>
                 </a>
             </li>
-        </ul>
-        <ul class="sidebar--bottom-items">
             <li>
                 <a href="#">
                     <span class="icon icon-7"><i class="ri-settings-3-line"></i></span>
@@ -64,6 +53,9 @@
                 </a>
             </li>
         </ul>
+
+
+
     </div>
     <div class="main--content">
         <div class="overview">
@@ -183,8 +175,6 @@
                 </div>
                 <div class="modal-body">
                     <div class="formbold-main-wrapper">
-                        <!-- Author: FormBold Team -->
-                        <!-- Learn More: https://formbold.com -->
                         <div class="formbold-form-wrapper">
                             <form action="add" method="POST">
                                 <div class="flex flex-wrap formbold--mx-3">

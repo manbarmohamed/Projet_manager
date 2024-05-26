@@ -10,7 +10,7 @@
 <body>
 <div class="container mt-5">
     <h1>Ajouter une Tâche</h1>
-    <form action="addT" method="post">
+    <form action="addT" method="post" onsubmit="return validateForm()">
         <div class="form-group">
             <label for="description">Description</label>
             <textarea class="form-control" id="description" name="description" required></textarea>
@@ -44,5 +44,18 @@
     </form>
 </div>
 
+<script>
+    function validateForm() {
+        const startDate = document.getElementById('dateDebut').value;
+        const endDate = document.getElementById('dateFin').value;
+
+        if (new Date(startDate) <= new Date(endDate)) {
+            alert('La date de début doit être antérieure à la date de fin.');
+            return false;
+        }
+
+        return true;
+    }
+</script>
 </body>
 </html>

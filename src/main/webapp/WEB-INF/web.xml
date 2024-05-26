@@ -137,4 +137,13 @@
         <servlet-name>EditRessource</servlet-name>
         <url-pattern>/editR</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PDFServlet</servlet-name>
+        <servlet-class>com.exportPdf.PDFServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PDFServlet</servlet-name>
+        <url-pattern>/PDFServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
