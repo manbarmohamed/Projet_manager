@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="logout">
                     <span class="icon icon-8"><i class="ri-logout-box-r-line"></i></span>
                     <span class="sidebar--item">Logout</span>
                 </a>
