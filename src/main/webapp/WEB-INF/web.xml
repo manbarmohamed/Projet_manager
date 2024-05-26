@@ -4,6 +4,17 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
 
+
+
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.controllers.user.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>ShowProjetServlet</servlet-name>
         <servlet-class>com.controllers.projet.ShowProjetServlet</servlet-class>
