@@ -15,7 +15,7 @@
 <section class="header">
     <div class="logo">
         <i class="ri-menu-line icon icon-0 menu"></i>
-        <h2>Med<span>Ex</span></h2>
+        <h2>Construction<span>Xpert</span></h2>
     </div>
 
 </section>

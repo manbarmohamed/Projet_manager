@@ -23,7 +23,7 @@
 <section class="header">
     <div class="logo">
         <i class="ri-menu-line icon icon-0 menu"></i>
-        <h2>Med<span>Ex</span></h2>
+        <h2>Construction<span>Xpert</span></h2>
     </div>
 
 </section>
@@ -176,7 +176,7 @@
                                         <a href="editT?idT=${taskdn.getTacheId()}"><i class="ri-edit-line edit"></i></a>
                                     </span>
             <span>
-                                        <a href="delT?idT=${taskdn.getTacheId()}&idpT=${taskdn.projectId}" onclick="confirmDeletion(event, '${taskdn.getTacheId()}', 'Tache',${taskdn.projectId})"><i class="ri-delete-bin-line delete"></i></a>
+                                        <a href="#" onclick="confirmDeletion(event, '${taskdn.getTacheId()}', 'Tache',${taskdn.projectId})"><i class="ri-delete-bin-line delete"></i></a>
                                     </span>
         </div>
     </div>
